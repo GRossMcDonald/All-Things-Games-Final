@@ -34,6 +34,7 @@ body {
 }
 
 .bio {
+  color: white;
   display: inline;
   font-weight: 300;
   font-size: 20px;

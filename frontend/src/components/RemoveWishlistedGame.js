@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import "./RemoveWishlistedGameButton.css";
 
 const RemoveWishlistedGame = ({ gameToRemove }) => {
-    const loggedInEmail = localStorage.getItem("loggedInEmail");
+  const loggedInEmail = localStorage.getItem("loggedInEmail");
 
-    const removeFromWishlist = () => {
-        console.log("Removing from wishlist, loggedInEmail:", loggedInEmail);
-    fetch(`http://localhost:8080/user?email=${encodeURIComponent(loggedInEmail)}`)
+  const removeFromWishlist = () => {
+    console.log("Removing from wishlist, loggedInEmail:", loggedInEmail);
+    fetch(
+      `http://localhost:8080/user?email=${encodeURIComponent(loggedInEmail)}`
+    )
       .then((response1) => {
         console.log("response1:", response1);
         if (!response1.ok) {
@@ -17,8 +20,10 @@ const RemoveWishlistedGame = ({ gameToRemove }) => {
         console.log("data1:", data1);
         const wishlistId = data1.wishlist.id;
 
-        const url = `http://localhost:8080/wishlist/${encodeURIComponent(wishlistId)}`;
-        
+        const url = `http://localhost:8080/wishlist/${encodeURIComponent(
+          wishlistId
+        )}`;
+
         return fetch(url, {
           method: "DELETE",
           headers: {
@@ -36,7 +41,10 @@ const RemoveWishlistedGame = ({ gameToRemove }) => {
             console.log("Updated wishlist:", data2);
           })
           .catch((error2) => {
-            console.error("There was a problem removing the game from the wishlist:", error2);
+            console.error(
+              "There was a problem removing the game from the wishlist:",
+              error2
+            );
           });
       })
       .catch((error1) => {
@@ -46,7 +54,9 @@ const RemoveWishlistedGame = ({ gameToRemove }) => {
 
   return (
     <div>
-      <button onClick={removeFromWishlist}>Remove From Wishlist</button>
+      <button className="remove-game-button" onClick={removeFromWishlist}>
+        Remove From Wishlist
+      </button>
     </div>
   );
 };
