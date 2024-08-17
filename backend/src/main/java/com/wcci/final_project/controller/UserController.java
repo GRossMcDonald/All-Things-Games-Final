@@ -39,7 +39,7 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<User> getUserByEmail(@RequestParam String email) {
+    public ResponseEntity<User> getUserByEmail(@RequestParam("email") String email) {
         Optional<User> optionalFoundUser = userService.findUserByEmail(email);
         if (optionalFoundUser.isPresent()) {
             return ResponseEntity.ok(optionalFoundUser.get());

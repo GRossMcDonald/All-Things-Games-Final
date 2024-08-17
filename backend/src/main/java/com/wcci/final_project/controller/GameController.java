@@ -174,7 +174,7 @@ public class GameController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<Game>> searchForGamesByTitle(@RequestParam String searchTerm) throws IOException {
+    public ResponseEntity<List<Game>> searchForGamesByTitle(@RequestParam("searchTerm") String searchTerm) throws IOException {
         List<Game> searchResults = gameService.searchGamesByTitle(searchTerm);
 
         if (searchResults.isEmpty()) {
