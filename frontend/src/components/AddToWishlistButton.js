@@ -1,5 +1,6 @@
 import React from "react";
 import { fetchLoggedInUser } from "./LoggedInUserData";
+import "./AddToWishlistButton.css";
 
 function AddToWishlistButton({ gameToAdd }) {
   const addToWishlist = async () => {
@@ -52,7 +53,9 @@ function AddToWishlistButton({ gameToAdd }) {
 
   return (
     <div>
-      <button onClick={addToWishlist}>Add To Wishlist</button>
+      <button className="wishlist-button" onClick={addToWishlist}>
+        Add To Wishlist
+      </button>
     </div>
   );
 }

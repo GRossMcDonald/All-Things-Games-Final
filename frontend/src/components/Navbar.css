@@ -6,11 +6,11 @@
   background-color: #0d1b2a;
   justify-content: center;
   align-items: center;
-  margin-top: 1em;
 }
 
 .navbar {
   display: flex;
+  justify-content: space-between;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -18,6 +18,11 @@
   box-sizing: border-box;
   position: relative;
   z-index: 1000;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1em;
+  box-sizing: border-box;
 }
 
 .navbar a {
@@ -35,20 +40,125 @@
 .search-bar {
   padding: 0.75em;
   border-radius: 0.5em;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #user-greeting {
   color: #e0e1dd;
   padding: 0 1em;
+  padding: 0 1em;
 }
 
 .homelink-container {
-  margin-left: 12em;
+  padding-right: 1em;
+}
+
+.about-container {
+  padding: 0 1em;
 }
 
 .view-wishlist {
-  padding-right: 1em;
-  display: flex;
-  align-items: center;
-  margin-left: auto;
+  padding-left: 3em;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5em;
+  }
+
+  .search-bar-container {
+    padding: 0.5em;
+  }
+
+  .search-bar {
+    padding: 0.5em;
+  }
+
+  .homelink-container,
+  .about-container,
+  .view-wishlist {
+    margin: 3em;
+    padding: 0;
+  }
+
+  #user-greeting {
+    display: none;
+  }
+
+  .view-wishlist {
+    padding-right: 1em;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  .view-wishlist {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.25em;
+  }
+
+  .navbar a {
+    font-size: 14px;
+  }
+
+  .search-bar-container {
+    padding: 0.25em;
+  }
+
+  .search-bar {
+    padding: 0.25em;
+  }
+
+  .homelink-container,
+  .about-container,
+  .view-wishlist {
+    margin: 0.25em;
+  }
+
+  #user-greeting {
+    display: none;
+  }
+
+  .view-wishlist {
+    padding-left: 3rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar {
+    padding: 0.25em;
+  }
+
+  .navbar a {
+    font-size: 14px;
+  }
+
+  .search-bar-container {
+    padding: 0.25em;
+  }
+
+  .search-bar {
+    padding: 0.25em;
+  }
+
+  .homelink-container,
+  .about-container,
+  .view-wishlist {
+    margin: 0.25em;
+  }
+
+  #user-greeting {
+    display: none;
+  }
+
+  .view-wishlist {
+    padding-left: 3rem;
+    width: 100%;
+  }
 }

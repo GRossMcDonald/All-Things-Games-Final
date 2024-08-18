@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./RemoveWishlistedGameButton.css";
 const RemoveWishlistedGame = ({ gameToRemove, onGameRemoval }) => {
   const loggedInEmail = localStorage.getItem("loggedInEmail");
 
@@ -55,7 +55,9 @@ const RemoveWishlistedGame = ({ gameToRemove, onGameRemoval }) => {
 
   return (
     <div>
-      <button onClick={removeFromWishlist}>Remove From Wishlist</button>
+      <button className="remove-game-button" onClick={removeFromWishlist}>
+        Remove From Wishlist
+      </button>
     </div>
   );
 };
