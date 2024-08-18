@@ -1,9 +1,8 @@
 import React from "react";
 import { fetchLoggedInUser } from "./LoggedInUserData";
 
-function AddToWishlistButton({ gameToAdd, onGameAddition }) {
+function AddToWishlistButton({ gameToAdd }) {
   const addToWishlist = async () => {
-    console.log("onGameAddition prop type:", typeof onGameAddition);
     const loggedInUser = await fetchLoggedInUser();
     const userWishlistedGames = loggedInUser.wishlist.games;
     const gameToAddItadId = gameToAdd.itadId;
@@ -28,7 +27,8 @@ function AddToWishlistButton({ gameToAdd, onGameAddition }) {
 
       fetch(
         `http://localhost:8080/wishlist/${encodeURIComponent(
-          userWishlistId)}/add-game`,
+          userWishlistId
+        )}/add-game`,
         {
           method: "POST",
           headers: {
@@ -41,8 +41,6 @@ function AddToWishlistButton({ gameToAdd, onGameAddition }) {
           if (!response.ok) {
             throw new Error("Network response was not okay.");
           }
-          console.log("Calling onGameAddition");
-            onGameAddition();
         })
         .catch((error) => {
           console.log(
