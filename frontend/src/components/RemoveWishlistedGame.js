@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-const RemoveWishlistedGame = ({ gameToRemove }) => {
+const RemoveWishlistedGame = ({ gameToRemove, onGameRemoval }) => {
     const loggedInEmail = localStorage.getItem("loggedInEmail");
 
     const removeFromWishlist = () => {
@@ -34,6 +34,8 @@ const RemoveWishlistedGame = ({ gameToRemove }) => {
           })
           .then((data2) => {
             console.log("Updated wishlist:", data2);
+            console.log("onGameRemoval: ", onGameRemoval)
+            onGameRemoval();
           })
           .catch((error2) => {
             console.error("There was a problem removing the game from the wishlist:", error2);

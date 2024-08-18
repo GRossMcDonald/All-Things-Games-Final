@@ -38,9 +38,9 @@
 }
 
 .hamburger.active {
-  position: relative;
-  top: 0;
-  right: 1em;
+  position: fixed;
+  top: 0.5;
+  right: 2em;
 }
 
 .hamburger .bar:nth-child(1) {
