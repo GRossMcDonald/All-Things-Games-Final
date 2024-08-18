@@ -8,18 +8,17 @@ import Navbar from "./components/Navbar";
 import SearchPage from "./components/SearchPage";
 import AccountRegistration from "./components/AccountRegistration";
 import LoginPage from "./components/LoginPage";
-import Wishlist from "./components/Wishlist";
 import WishlistGamesTemp from "./components/WishlistGamesTemp";
 import About from "./components/About";
-import WishlistPriceUpdater from "./components/WishlistPriceUpdater";
+import { checkAndUpdatePrices } from "./components/CheckPrices";
 
 function App() {
   useEffect(() => {
-    const stopUpdater = WishlistPriceUpdater();
+    const interval = setInterval(() => {
+      checkAndUpdatePrices();
+    }, 60000);
 
-    return () => {
-      stopUpdater();
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -36,7 +35,6 @@ function App() {
             path="/AccountRegistration"
             element={<AccountRegistration />}
           />
-          <Route path="/Wishlist" element={<Wishlist />} />
           <Route path="/About" element={<About />} />
         </Routes>
       </div>
