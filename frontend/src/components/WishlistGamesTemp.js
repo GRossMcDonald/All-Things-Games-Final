@@ -3,10 +3,12 @@ import { fetchLoggedInUsersWishlistedGames } from "./LoggedInUserData";
 import { Link } from "react-router-dom";
 import PopularGamesImg from "./PopularGamesImg";
 import { checkAndUpdatePrices } from "./CheckPrices";
+import RemoveWishlistedGame from "./RemoveWishlistedGame";
 
 function WishlistGamesTemp() {
   const [wishlistGames, setWishlistGames] = useState([]);
   const loggedInEmail = localStorage.getItem("loggedInEmail");
+  const [update, setUpdate] = useState(false);
 
   useEffect(() => {
     const fetchLoggedInUserData = async () => {
@@ -23,7 +25,7 @@ function WishlistGamesTemp() {
     };
 
     fetchLoggedInUserData();
-  }, []);
+  }, [update]);
 
   useEffect(() => {
     if (wishlistGames.length > 0) {
@@ -43,6 +45,11 @@ function WishlistGamesTemp() {
     );
   });
 
+  const handleUpdate = () => {
+    console.log("Handle update triggered");
+    setUpdate((prev) => !prev);
+  };
+
   return (
     <div>
       <div>
@@ -55,6 +62,10 @@ function WishlistGamesTemp() {
               <PopularGamesImg game={wishlistGame} />
               <h3>{wishlistGame.title}</h3>
             </Link>
+            <RemoveWishlistedGame
+              gameToRemove={wishlistGame}
+              onGameRemoval={handleUpdate}
+            />
             <h4>Best Price</h4>
             <div>
               <span>$</span>
