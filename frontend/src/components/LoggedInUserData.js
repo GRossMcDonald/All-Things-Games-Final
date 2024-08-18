@@ -31,5 +31,7 @@ export async function fetchLoggedInUsersWishlistedGames() {
 
   const loggedInUsersWishlistedGames = loggedInUsersWishlist.games;
 
+  console.log("From fetch: ", loggedInUsersWishlistedGames);
+
   return loggedInUsersWishlistedGames;
 }
