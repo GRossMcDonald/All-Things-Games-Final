@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./SearchPage.css";
+import AddToWishlistButton from "./AddToWishlistButton";
 
 function SearchPage() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function SearchPage() {
                 />
                 <p className="search-game-title">{game.title}</p>
               </Link>
+              <AddToWishlistButton gameToAdd={game} />
             </li>
           ))}
         </ul>
