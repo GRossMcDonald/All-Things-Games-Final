@@ -15,8 +15,6 @@ function AddToWishlistButton({ gameToAdd }) {
     });
 
     if (!isAlreadyOnWishlist) {
-      console.log("Adding game with ITAD ID: ", { gameToAddItadId });
-
       const userWishlistId = loggedInUser.wishlist.id;
 
       const requestBody = {
