@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-import "./RemoveWishlistedGameButton.css";
-
-const RemoveWishlistedGame = ({ gameToRemove }) => {
-=======
 import React from "react";
-
+import "./RemoveWishlistedGameButton.css";
 const RemoveWishlistedGame = ({ gameToRemove, onGameRemoval }) => {
->>>>>>> origin/main
   const loggedInEmail = localStorage.getItem("loggedInEmail");
 
   const removeFromWishlist = () => {
