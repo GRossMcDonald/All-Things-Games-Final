@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -11,21 +11,27 @@ import LoginPage from "./components/LoginPage";
 import WishlistGamesTemp from "./components/WishlistGamesTemp";
 import About from "./components/About";
 import { checkAndUpdatePrices } from "./components/CheckPrices";
+import { fetchLoggedInUsersWishlist } from "./components/LoggedInUserData";
 
 function App() {
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const loggedInEmail = localStorage.getItem("loggedInEmail");
+  const [loggedInUsersWishlist, setLoggedInUsersWishlist] = useState([]);
 
-      console.log(loggedInEmail);
+  async function fetchWishlist(params) {
+    setLoggedInUsersWishlist(await fetchLoggedInUsersWishlist());
+  }
+
+  useEffect(() => {
+    setInterval(() => {
+      fetchWishlist();
+
+      console.log("User's wishlist size: ", loggedInUsersWishlist.length);
 
       // eslint-disable-next-line eqeqeq
-      if (loggedInEmail !== null) {
+      if (loggedInUsersWishlist.length > 0) {
         checkAndUpdatePrices();
       }
-    }, 60000);
-
-    return () => clearInterval(interval);
+    }, 3000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
