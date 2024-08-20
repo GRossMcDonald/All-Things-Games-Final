@@ -12,8 +12,8 @@ function NavBar() {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("loggedInEmail");
     setLoggedInEmail("");
+    localStorage.setItem("loggedInEmail", loggedInEmail);
   };
 
   return (

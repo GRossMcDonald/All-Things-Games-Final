@@ -15,8 +15,15 @@ import { checkAndUpdatePrices } from "./components/CheckPrices";
 function App() {
   useEffect(() => {
     const interval = setInterval(() => {
-      checkAndUpdatePrices();
-    }, 60000);
+      const loggedInEmail = localStorage.getItem("loggedInEmail");
+
+      console.log(loggedInEmail);
+
+      // eslint-disable-next-line eqeqeq
+      if (loggedInEmail !== null) {
+        checkAndUpdatePrices();
+      }
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
