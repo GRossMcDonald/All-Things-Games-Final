@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #677e9b;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.user-wishlist-header {
+  color: white;
+  margin: 20px 0;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.wishlist-container {
+  margin: 10px auto;
+  padding: 20px;
+  background-color: #0d1b2a;
+  border-radius: 8px;
+  max-width: 90%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.game-title {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.game-title:hover {
+  color: #f0f0f0;
+  text-decoration: underline;
+}
+
+.best-price-header {
+  color: white;
+  margin: 10px 0;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.best-price-display {
+  color: white;
+  font-weight: 700;
+  margin: 5px 0;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .wishlist-container {
+    max-width: 80%;
+  }
+
+  .user-wishlist-header,
+  .best-price-header {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 992px) {
+  .wishlist-container {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .user-wishlist-header,
+  .best-price-header {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 768px) {
+  .wishlist-container {
+    max-width: 95%;
+    padding: 15px;
+    margin: 10px auto; /* Reduce margin for smaller screens */
+  }
+
+  .user-wishlist-header,
+  .best-price-header {
+    font-size: 1.2em;
+  }
+
+  .best-price-display {
+    font-size: 1em; /* Adjust font size for readability */
+  }
+}
+
+@media (max-width: 480px) {
+  .user-wishlist-header,
+  .best-price-header {
+    font-size: 1em;
+  }
+
+  .best-price-display {
+    font-size: 0.9em; /* Slightly smaller text for very small screens */
+  }
+}

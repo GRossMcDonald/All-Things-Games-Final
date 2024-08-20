@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PopularGamesImg from "./PopularGamesImg";
 import { checkAndUpdatePrices } from "./CheckPrices";
 import RemoveWishlistedGame from "./RemoveWishlistedGame";
+import "./Wishlist.css";
 
 function WishlistGamesTemp() {
   const [wishlistGames, setWishlistGames] = useState([]);
@@ -51,23 +52,25 @@ function WishlistGamesTemp() {
   };
 
   return (
-    <div>
+    <div className="wishlist-container">
       <div>
-        <h3>{loggedInEmail}'s Wishlisted Games</h3>
+        <h3 className="user-wishlist-header">
+          {loggedInEmail}'s Wishlisted Games
+        </h3>
       </div>
-      <ul>
+      <ul className="wishlist">
         {wishlistGames.map((wishlistGame) => (
           <li key={wishlistGame.id}>
             <Link to={`/GameInfoPage/${wishlistGame.itadId}`}>
               <PopularGamesImg game={wishlistGame} />
-              <h3>{wishlistGame.title}</h3>
+              <h3 className="game-title">{wishlistGame.title}</h3>
             </Link>
             <RemoveWishlistedGame
               gameToRemove={wishlistGame}
               onGameRemoval={handleUpdate}
             />
-            <h4>Best Price</h4>
-            <div>
+            <h4 className="best-price-header">Best Price</h4>
+            <div className="best-price-display">
               <span>$</span>
               <span id={`game-price-${wishlistGame.itadId}`}>
                 {wishlistGame.priceWhenAdded}
