@@ -23,7 +23,7 @@ function App() {
       if (loggedInEmail !== null) {
         checkAndUpdatePrices();
       }
-    }, 5000);
+    }, 60000);
 
     return () => clearInterval(interval);
   }, []);
