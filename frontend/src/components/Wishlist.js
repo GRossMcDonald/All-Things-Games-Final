@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Wishlist.css";
 import PopularGamesImg from "./PopularGamesImg";
 import RemoveWishlistedGame from "./RemoveWishlistedGame";
 import { fetchLoggedInUsersWishlistedGames } from "./LoggedInUserData";
@@ -29,7 +28,7 @@ const Wishlist = () => {
           <p className="wishlist-title">Your Wishlist</p>
           {usersWishlistedGames.length > 0 ? (
             usersWishlistedGames.map((game) => (
-              <li key={game.id}>
+              <li className="wishlist-item" key={game.id}>
                 <Link to={`/GameInfoPage/${game.id}`}>
                   <PopularGamesImg game={game} />
                   <h4>{game.title}</h4>
